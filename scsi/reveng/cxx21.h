@@ -34,6 +34,6 @@ public:
 	void Initialize();
 
 	char CardDetection(char socket);	
-
+	char sub_0_1A100();
 };
 

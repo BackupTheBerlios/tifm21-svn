@@ -78,6 +78,54 @@ Cxx21::CardDetection(char socket)
         t_socket->vtable[m_id](); // call from table
 
 loc_0_1A328:
+	switch(m_id)
+	{
+	    case 1:
+	    case 2:
+	    case 3:
+	}
+
+	// no valid card message
+	r15b = 0x83;
+	if(mpFlash[socket] != 0)
+	{
+	    // old card removed
+	    sub_0_1FE70(mpFlash[socket]);
+	}
 	
+	switch(socket)
+	{
+	    case 0:
+		write32(iomem + 0xc, 0x00010100);
+		arr_x[socket] = 0;
+		break;
+	    case 1:
+		write32(iomem + 0xc, 0x00020200);
+		arr_x[socket] = 0;
+		break;
+	    case 2:
+		write32(iomem + 0xc, 0x00040400);
+		arr_x[socket] = 0;
+		break;
+	    case 3:
+		write32(iomem + 0xc, 0x00080800);
+		arr_x[socket] = 0;
+		break;
+	    default:
+		arr_x[socket] = 0;
+	    
+	}	
+	// loc_0_1A543
 	
+}
+
+char
+Cxx21::sub_0_1A100()
+{
+    unsigned int v1;
+    
+    v1 = read32(base_addr + 0x14);
+    if(v1 == 0 || v1 == 0xffffffff) return 0;
+loc_0_1A129:
+    
 }
